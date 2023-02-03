@@ -10,8 +10,17 @@ interface INote {
 }
 
 function Notes() {
-    const [notes, setNotes] = useState<INote[]>([]);
+    const notesStorageKey = 'Notes';
+
+    const [notes, setNotes] = useState<INote[]>(() => {
+        const initialData = JSON.parse(localStorage.getItem(notesStorageKey) || '');
+        return initialData || [];
+    });
     const [inputText, setInputText] = useState('');
+
+    useEffect(() => {
+        localStorage.setItem(notesStorageKey, JSON.stringify(notes));
+    }, [notes]);
 
     const textHandler = (e: any) => {
         setInputText(e.target.value);
