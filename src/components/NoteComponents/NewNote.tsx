@@ -12,6 +12,7 @@ function NewNote({ textHandler, saveNoteHandler, inputText }: INewNoteProps) {
             <textarea
                 cols={ 10 }
                 rows={ 5 }
+                value={ inputText }
                 placeholder='Enter text...'
                 onChange={ textHandler }
                 maxLength={ 100 }
