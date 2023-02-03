@@ -1,4 +1,5 @@
-import React, { ChangeEventHandler, MouseEventHandler, TextareaHTMLAttributes } from 'react'
+import React, { ChangeEventHandler, MouseEventHandler } from 'react'
+import { LinearProgress } from '@mui/material';
 
 interface INewNoteProps {
     textHandler: ChangeEventHandler;
@@ -7,6 +8,9 @@ interface INewNoteProps {
 }
 
 function NewNote({ textHandler, saveNoteHandler, inputText }: INewNoteProps) {
+    const charLimit = 100;
+    const charLeft = charLimit - inputText.length;
+
     return (
         <div className='note' style={{ background: 'rgba(255, 255, 255, 0)' }}>
             <textarea
@@ -20,11 +24,16 @@ function NewNote({ textHandler, saveNoteHandler, inputText }: INewNoteProps) {
 
             </textarea>
             <div className='note__footer'>
-                <span className='label'> left</span>
+                <span className='label'>{ charLeft } left</span>
                 <button className='note__save' onClick={ saveNoteHandler }>
                     Save
                 </button>
             </div>
+            <LinearProgress
+                className='char__progress'
+                variant='determinate'
+                value={ charLeft }
+            />
         </div>  
     );
 }
