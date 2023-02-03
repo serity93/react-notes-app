@@ -1,3 +1,4 @@
+import React from 'react'
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined'
 
 function Note() {
