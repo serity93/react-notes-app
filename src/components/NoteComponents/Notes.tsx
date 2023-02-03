@@ -13,7 +13,7 @@ function Notes() {
     const notesStorageKey = 'Notes';
 
     const [notes, setNotes] = useState<INote[]>(() => {
-        const initialData = JSON.parse(localStorage.getItem(notesStorageKey) || '');
+        const initialData = JSON.parse(localStorage.getItem(notesStorageKey) || '[]');
         return initialData || [];
     });
     const [inputText, setInputText] = useState('');
