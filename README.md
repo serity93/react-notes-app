@@ -1,2 +1,2 @@
 # react-notes-app
- A simple notes app using React and MongoDB
+ A simple notes app written in React.
